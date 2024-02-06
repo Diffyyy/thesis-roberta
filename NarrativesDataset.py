@@ -3,13 +3,13 @@ from torch.utils.data import Dataset
 import torch
 
 class NarrativesDataset(Dataset):
-    def __init(self, data_path, tokenizer, attributes, max_token_len: int = 128, sample = 5000):
+    def __init__(self, data_path, tokenizer, attributes, max_token_len: int = 128, sample = 5000):
         self.data_path = data_path
         self.tokenizer = tokenizer
         self.attributes = attributes
         self.max_token_len = max_token_len
         self.sample = sample
-    
+        self.prepare_data()
 
     def prepare_data(self):
         self.data = pd.read_csv(self.data_path)
